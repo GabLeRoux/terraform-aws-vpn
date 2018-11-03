@@ -78,7 +78,7 @@ If you're like me and have a bunch of instances running, you're passed the free 
 
 #### Can I use a variable to not use an Elastic IP?
 
-Contributions are welcome :v:, without a variable, one can simply delete the `eip.tf` file and update `output.tf` and it should not create an Elastic IP for the instance anymore.
+Contributions are welcome :v:, see [#1](https://github.com/GabLeRoux/terraform-aws-vpn/issues/1), workaround inside.
 
 #### How much time does it take to provision all of this?
 
@@ -115,9 +115,20 @@ A few seconds
 
 Yes, unless you've set empty values in `.env.vpn`, but creds are generated at provision (install) time.
 
+#### Will this work from everywhere?
+
+Tricky question.
+
+* For the initial setup, you will require ssh port open. Some internet cafes or business firewalls have this blocked. But once it's installed, all you need is udp ports 500 and 4500 open. You should be able to stop and start the vpn from the scripts without these.
+* If you're in china, it may be harder. Have a look to the available aws regions and pick the right one for you, there's a variable for this.
+
 #### Will I be invisible on the internets?
 
-No, you're never invisible on the internets. Don't do bad things cuz Illuminatis are confirmed /o\ anyway. Glad you made it this far! :neckbeard: 
+No, you're never invisible on the internets. Don't do bad things cuz Illuminatis are confirmed /o\. Glad you made it this far in the readme! :neckbeard: 
+
+#### What can I do to improve this project?
+
+You have a look at [the issues](https://github.com/gableroux/terraform-aws-vpn/issues) and even contribute, I'm open to changes.
 
 ## License
 
