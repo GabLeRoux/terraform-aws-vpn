@@ -1,5 +1,9 @@
 # Terraform vpn setup for AWS
 
+[![Build Status](https://travis-ci.com/GabLeRoux/terraform-aws-vpn.svg?branch=master)](https://travis-ci.com/GabLeRoux/terraform-aws-vpn)
+
+Create a vpn server on AWS in its own vpc using terraform
+
 ![graph](./graph.svg)
 
 ## Getting Started

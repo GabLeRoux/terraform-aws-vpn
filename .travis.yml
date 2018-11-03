@@ -10,6 +10,7 @@ before_install:
   - sudo unzip -d /usr/local/bin/ /tmp/terraform.zip
 
 script:
+  - touch ~/.ssh/gableroux_aws_rsa # default value in variables
   - terraform init
   - terraform validate
   - terraform plan
