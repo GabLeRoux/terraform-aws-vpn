@@ -10,28 +10,31 @@ Create a vpn server on AWS in its own vpc using terraform
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
-- [Terraform vpn setup for AWS](#terraform-vpn-setup-for-aws)
-  - [Getting Started](#getting-started)
-    - [Requirements](#requirements)
-    - [Related documentation](#related-documentation)
-    - [Set your secrets in dotenv files](#set-your-secrets-in-dotenv-files)
-    - [Load your aws profile](#load-your-aws-profile)
-    - [Init terraform](#init-terraform)
-    - [See what's going to be applied](#see-whats-going-to-be-applied)
-    - [Apply the changes](#apply-the-changes)
-  - [Additional details](#additional-details)
-    - [FAQ and Considerations](#faq-and-considerations)
-      - [How much does it cost?](#how-much-does-it-cost)
-      - [Should I stop the instance to save money?](#should-i-stop-the-instance-to-save-money)
-      - [Can I use a variable to not use an Elastic IP?](#can-i-use-a-variable-to-not-use-an-elastic-ip)
-      - [How much time does it take to provision all of this?](#how-much-time-does-it-take-to-provision-all-of-this)
-      - [How can I stop and start my instance from command line](#how-can-i-stop-and-start-my-instance-from-command-line)
-      - [How much time does it take for the vpn to start when I start the instance?](#how-much-time-does-it-take-for-the-vpn-to-start-when-i-start-the-instance)
-      - [Will the credentials be the same each time?](#will-the-credentials-be-the-same-each-time)
-      - [Will this work from everywhere?](#will-this-work-from-everywhere)
-      - [Will I be invisible on the internets?](#will-i-be-invisible-on-the-internets)
-      - [What can I do to improve this project?](#what-can-i-do-to-improve-this-project)
-  - [License](#license)
+- [Getting Started](#getting-started)
+  - [Requirements](#requirements)
+  - [Related documentation](#related-documentation)
+  - [Set your secrets in dotenv files](#set-your-secrets-in-dotenv-files)
+  - [Load your aws profile](#load-your-aws-profile)
+  - [Init terraform](#init-terraform)
+  - [See what's going to be applied](#see-whats-going-to-be-applied)
+  - [Apply the changes](#apply-the-changes)
+- [Additional details](#additional-details)
+  - [FAQ and Considerations](#faq-and-considerations)
+    - [How much does it cost?](#how-much-does-it-cost)
+    - [Should I stop the instance to save money?](#should-i-stop-the-instance-to-save-money)
+    - [Can I use a variable to not use an Elastic IP?](#can-i-use-a-variable-to-not-use-an-elastic-ip)
+    - [How much time does it take to provision all of this?](#how-much-time-does-it-take-to-provision-all-of-this)
+    - [How can I stop and start my instance from command line](#how-can-i-stop-and-start-my-instance-from-command-line)
+    - [How much time does it take for the vpn to start when I start the instance?](#how-much-time-does-it-take-for-the-vpn-to-start-when-i-start-the-instance)
+    - [Will the credentials be the same each time?](#will-the-credentials-be-the-same-each-time)
+    - [Will this work from everywhere?](#will-this-work-from-everywhere)
+    - [Will I be invisible on the internets?](#will-i-be-invisible-on-the-internets)
+    - [Troubleshooting terraform](#troubleshooting-terraform)
+    - [What can I do to improve this project?](#what-can-i-do-to-improve-this-project)
+- [Development](#development)
+  - [Generate a graph of the plan](#generate-a-graph-of-the-plan)
+  - [Update table of content](#update-table-of-content)
+- [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -154,11 +157,35 @@ Tricky question.
 
 #### Will I be invisible on the internets?
 
-No, you're never invisible on the internets. Don't do bad things cuz Illuminatis are confirmed /o\. Glad you made it this far in the readme! :neckbeard: 
+No, you're never invisible on the internets. Don't do bad things cuz Illuminatis are confirmed /o\. Glad you made it this far in the readme! :neckbeard:
+
+#### Troubleshooting terraform
+
+In case you get an unclear error message
+
+```bash
+TF_LOG=TRACE terraform your_command
+``` 
 
 #### What can I do to improve this project?
 
 You have a look at [the issues](https://github.com/gableroux/terraform-aws-vpn/issues) and even contribute, I'm open to changes.
+
+## Development
+
+### Generate a graph of the plan
+
+```bash
+terraform graph -draw-cycles | dot -Tsvg -o graph.svg
+```
+
+### Update table of content
+
+generated with [DocToc](https://github.com/thlorenz/doctoc)
+
+```bash
+doctoc --github ReadMe.md
+```
 
 ## License
 
