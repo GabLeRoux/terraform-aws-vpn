@@ -166,7 +166,7 @@ TF_LOG=TRACE terraform your_command
 
 ### What can I do to improve this project?
 
-You have a look at [the issues](https://github.com/gableroux/terraform-aws-vpn/issues) and even contribute, I'm open to changes.
+Have a look at [the issues](https://github.com/gableroux/terraform-aws-vpn/issues), suggest things or contribute, I'm open to changes.
 
 ## Development
 
