@@ -10,9 +10,11 @@ Create a vpn server on AWS in its own vpc using terraform
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
+- [Getting started macOS tldr version](#getting-started-macos-tldr-version)
 - [Getting Started](#getting-started)
   - [Requirements](#requirements)
   - [Related documentation](#related-documentation)
+  - [Clone this repos](#clone-this-repos)
   - [Set your secrets in dotenv files](#set-your-secrets-in-dotenv-files)
   - [Load your aws profile](#load-your-aws-profile)
   - [Init terraform](#init-terraform)
@@ -38,6 +40,25 @@ Create a vpn server on AWS in its own vpc using terraform
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 
+## Getting started macOS tldr version
+
+If you're used to this stuff, here's the _I don't need to know what's going on version_:
+
+```bash
+brew install terraform jq awscli
+aws configure
+export AWS_PROFILE=default
+git clone git@github.com:GabLeRoux/terraform-aws-vpn.git
+cd terraform-aws-vpn
+cp .env.vpn.example .env.vpn
+vim .env.vpn
+terraform init
+terraform apply
+./scripts/vpn_status.sh
+```
+
+Then see [Setup VPN clients](https://git.io/vpnclients)
+
 ## Getting Started
 
 ### Requirements
@@ -53,6 +74,13 @@ Create a vpn server on AWS in its own vpc using terraform
 * [Setup VPN clients](https://git.io/vpnclients)
 * [VPN Important notes](https://git.io/vpnnotes)
 * [The VPN Install script](https://git.io/vpnsetup)
+
+### Clone this repos
+
+```bash
+git clone git@github.com:GabLeRoux/terraform-aws-vpn.git
+cd terraform-aws-vpn
+```
 
 ### Set your secrets in dotenv files
 
@@ -74,7 +102,7 @@ function loadenv() {
 loadenv
 ```
 
-In our case, this will `export` the `AWS_PROFILE` to the one defined in `.env`. :+1:
+In our case, this will `export` the `AWS_PROFILE` to the one defined in `.env`. :+1:. You could skip this and execute `export AWS_profile=my_aws_profile_name` instead and it would be just fine.
 
 ### Init terraform
 
@@ -94,7 +122,11 @@ terraform plan
 terraform apply
 ```
 
-Write `yes` in the prompt if you're fine with this. Wait a few minutes and that's it, configure your vpn client and you're good to go! :tada:. 
+Write `yes` in the prompt if you're fine with this. Wait a few minutes and that's it, configure your vpn client and you're good to go! :tada:.
+
+### Connect your vpn client
+
+See [Setup VPN clients](https://git.io/vpnclients)
 
 ## FAQ and Considerations
 
