@@ -28,5 +28,5 @@ variable "vpc_cidr_block" {
 
 variable "ubuntu_version" {
   type    = "string"
-  default = "beaver-18.04"
+  default = "bionic-18.04"
 }
