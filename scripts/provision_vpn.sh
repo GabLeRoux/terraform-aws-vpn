@@ -6,13 +6,6 @@ set -e
 DOTENV_FILE=.env
 VPN_SCRIPT=vpnsetup.sh
 
-function ensure_root_user() {
-    if [[ $EUID -ne 0 ]]; then
-       echo "This script must be run as root"
-       exit 1
-    fi
-}
-
 function fail_if_missing_dotenv_file() {
     ls $DOTENV_FILE > /dev/null
 }
@@ -59,7 +52,6 @@ function cleanup() {
     rm $VPN_SCRIPT
 }
 
-ensure_root_user
 fail_if_missing_dotenv_file
 upgrade_system_packages_and_prevent_interactive
 install_general_packages
