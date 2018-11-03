@@ -13,4 +13,4 @@ script:
   - cp .env.example .env
   - touch ~/.ssh/gableroux_aws_rsa # required file from a default value in variables
   - terraform init
-  - terraform validate -backend=false # don't require aws credentials
+  - terraform validate -check-variables=true # don't require aws credentials
