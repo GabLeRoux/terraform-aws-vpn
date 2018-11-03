@@ -1,3 +1,32 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [Terraform vpn setup for AWS](#terraform-vpn-setup-for-aws)
+  - [Getting Started](#getting-started)
+    - [Requirements](#requirements)
+    - [Related documentation](#related-documentation)
+    - [Set your secrets in dotenv files](#set-your-secrets-in-dotenv-files)
+    - [Load your aws profile](#load-your-aws-profile)
+    - [Init terraform](#init-terraform)
+    - [See what's going to be applied](#see-whats-going-to-be-applied)
+    - [Apply the changes](#apply-the-changes)
+  - [Additional details](#additional-details)
+    - [FAQ and Considerations](#faq-and-considerations)
+      - [How much does it cost?](#how-much-does-it-cost)
+      - [Should I stop the instance to save money?](#should-i-stop-the-instance-to-save-money)
+      - [Can I use a variable to not use an Elastic IP?](#can-i-use-a-variable-to-not-use-an-elastic-ip)
+      - [How much time does it take to provision all of this?](#how-much-time-does-it-take-to-provision-all-of-this)
+      - [How can I stop and start my instance from command line](#how-can-i-stop-and-start-my-instance-from-command-line)
+      - [How much time does it take for the vpn to start when I start the instance?](#how-much-time-does-it-take-for-the-vpn-to-start-when-i-start-the-instance)
+      - [Will the credentials be the same each time?](#will-the-credentials-be-the-same-each-time)
+      - [Will this work from everywhere?](#will-this-work-from-everywhere)
+      - [Will I be invisible on the internets?](#will-i-be-invisible-on-the-internets)
+      - [What can I do to improve this project?](#what-can-i-do-to-improve-this-project)
+  - [License](#license)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Terraform vpn setup for AWS
 
 [![Build Status](https://travis-ci.com/GabLeRoux/terraform-aws-vpn.svg?branch=master)](https://travis-ci.com/GabLeRoux/terraform-aws-vpn)
