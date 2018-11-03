@@ -1,7 +1,7 @@
 resource "aws_instance" "server_vpn" {
   ami               = "${var.ami}"
   instance_type     = "t2.micro"
-  availability_zone = "${var.region}"
+  availability_zone = "${aws_subnet.vpn-1a.availability_zone}"
 
   subnet_id                   = "${aws_subnet.vpn-1a.id}"
   associate_public_ip_address = true

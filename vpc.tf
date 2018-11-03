@@ -1,5 +1,5 @@
 resource "aws_vpc" "vpn" {
-  cidr_block           = "172.32.0.0/16"
+  cidr_block           = "${var.vpc_cidr_block}"
   enable_dns_hostnames = true
 
   tags {
@@ -10,7 +10,7 @@ resource "aws_vpc" "vpn" {
 
 resource "aws_subnet" "vpn-1a" {
   vpc_id                  = "${aws_vpc.vpn.id}"
-  availability_zone       = "us-east-1a"
+  availability_zone       = "${var.region}a"
   cidr_block              = "${cidrsubnet(aws_vpc.vpn.cidr_block, 4, 1)}"
   map_public_ip_on_launch = true
 
@@ -21,7 +21,7 @@ resource "aws_subnet" "vpn-1a" {
 
 resource "aws_subnet" "vpn-1b" {
   vpc_id                  = "${aws_vpc.vpn.id}"
-  availability_zone       = "us-east-1b"
+  availability_zone       = "${var.region}b"
   cidr_block              = "${cidrsubnet(aws_vpc.vpn.cidr_block, 4, 2)}"
   map_public_ip_on_launch = true
 
@@ -30,27 +30,27 @@ resource "aws_subnet" "vpn-1b" {
   }
 }
 
-resource "aws_subnet" "vpn-1c" {
-  vpc_id                  = "${aws_vpc.vpn.id}"
-  availability_zone       = "us-east-1c"
-  cidr_block              = "${cidrsubnet(aws_vpc.vpn.cidr_block, 4, 3)}"
-  map_public_ip_on_launch = true
-
-  tags {
-    Name = "vpn-1c"
-  }
-}
-
-resource "aws_subnet" "vpn-1d" {
-  vpc_id                  = "${aws_vpc.vpn.id}"
-  availability_zone       = "us-east-1d"
-  cidr_block              = "${cidrsubnet(aws_vpc.vpn.cidr_block, 4, 4)}"
-  map_public_ip_on_launch = true
-
-  tags {
-    Name = "vpn-1d"
-  }
-}
+//resource "aws_subnet" "vpn-1c" {
+//  vpc_id                  = "${aws_vpc.vpn.id}"
+//  availability_zone       = "${var.region}c"
+//  cidr_block              = "${cidrsubnet(aws_vpc.vpn.cidr_block, 4, 3)}"
+//  map_public_ip_on_launch = true
+//
+//  tags {
+//    Name = "vpn-1c"
+//  }
+//}
+//
+//resource "aws_subnet" "vpn-1d" {
+//  vpc_id                  = "${aws_vpc.vpn.id}"
+//  availability_zone       = "${var.region}d"
+//  cidr_block              = "${cidrsubnet(aws_vpc.vpn.cidr_block, 4, 4)}"
+//  map_public_ip_on_launch = true
+//
+//  tags {
+//    Name = "vpn-1d"
+//  }
+//}
 
 # Create an internet gateway to give our subnet access to the outside world
 resource "aws_internet_gateway" "vpn" {

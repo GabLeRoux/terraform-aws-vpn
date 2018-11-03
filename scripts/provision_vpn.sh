@@ -4,6 +4,7 @@ set -x
 set -e
 
 DOTENV_FILE=.env
+ls $DOTENV_FILE
 
 sudo apt-get update
 

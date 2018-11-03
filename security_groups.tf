@@ -14,7 +14,7 @@ resource "aws_security_group" "vpn_sg" {
 
     cidr_blocks = "${var.authorized_ips_range}"
 
-    description = "vpn udp 80"
+    description = "vpn udp 500"
   }
 
   ingress {
@@ -24,7 +24,7 @@ resource "aws_security_group" "vpn_sg" {
 
     cidr_blocks = "${var.authorized_ips_range}"
 
-    description = "vpn tcp 80"
+    description = "vpn udp 4500"
   }
 
   ingress {

@@ -21,6 +21,11 @@ variable "authorized_ips_range" {
   ]
 }
 
+variable "vpc_cidr_block" {
+  type = "string"
+  default = "172.32.0.0/16"
+}
+
 variable "ami" {
   # ubuntu 18.04
   default = "ami-0ac019f4fcb7cb7e6"
